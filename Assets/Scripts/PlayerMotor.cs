@@ -15,6 +15,7 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private Vector3 rotation = Vector3.zero;
     private Vector3 rotateCamera = Vector3.zero;
+    private Vector3 run_velocity = Vector3.zero;
     [SerializeField]
     private Camera cam;
     void Start()
@@ -32,15 +33,32 @@ public class PlayerMotor : MonoBehaviour
         performMove();
         performRotation();
         jumping();
+        run();
 
     }
     void jumping()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space))
         {
             print("PRESS");
             rb.velocity = new Vector3 (0, 5, 0);
             isGrounded = false;
+        }
+    }
+    public void setRun(Vector3 run)
+    {
+        run_velocity = run;
+    }
+
+    void run()
+    {
+        if (Input.GetKey(KeyCode.LeftShift)) {
+
+
+            if (run_velocity != Vector3.zero)
+            {
+                rb.MovePosition(rb.position + run_velocity * Time.fixedDeltaTime);
+            }
         }
     }
     private void OnCollisionStay(Collision collision)
@@ -63,6 +81,7 @@ public class PlayerMotor : MonoBehaviour
 
         if (cam != null)
         {
+
             cam.transform.Rotate(-rotateCamera);
         }
 

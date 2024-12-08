@@ -11,6 +11,10 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     private float mouseSensevity = 2f;
     private PlayerMotor motor;
+    [SerializeField]
+    private float runSpeed = 8f;
+
+    private Vector3 rotation = Vector3.zero;
 
 
     void Start()
@@ -33,14 +37,22 @@ public class PlayerControl : MonoBehaviour
         motor.move(velocity);
 
         float yRot = Input.GetAxisRaw("Mouse X");
-        Vector3 rotation = new Vector3(0f, yRot, 0f)*mouseSensevity;
+       
+
+
+        rotation = new Vector3(0f, yRot, 0f) * mouseSensevity;
 
 
         float XRot = Input.GetAxisRaw("Mouse Y");
         Vector3 camRotation = new Vector3(XRot, 0f, 0f) * mouseSensevity;
 
+        print(camRotation.x + " "+camRotation.y + " " + camRotation.z);
+
+        Vector3 run_velocity = velocity * runSpeed;
+
         motor.rotate(rotation);
         motor.rotateCam(camRotation);
+        motor.setRun(run_velocity);
 
       
 

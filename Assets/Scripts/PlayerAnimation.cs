@@ -6,8 +6,8 @@ public class PlayerAnimation : MonoBehaviour
 {
 
     private Animator animator;
-
-
+    private Vector3 can_Animation = Vector3.zero;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +26,7 @@ public class PlayerAnimation : MonoBehaviour
 
             if (Input.GetKey(KeyCode.W))
             {
-                print("bitch");
+      
                 animator.SetBool("walking", true);
             }
             else
@@ -34,26 +34,25 @@ public class PlayerAnimation : MonoBehaviour
                 animator.SetBool("walking", false);
             }
 
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                animator.SetBool("walking", false);
 
-          /*  if (Input.GetKeyDown(KeyCode.W))
-            {
-                print("“€ —”¿ Õ¿∆¿À Õ¿ Ã≈Õﬂ ¡Àﬂƒ»Õ¿!");
-                animator.Play(walk_animation);
+                animator.SetBool("run", true);
             }
-            else if (Input.GetKeyDown(KeyCode.S))
+            else
             {
-                print("—À¿¬¿ œ”“»Õ»— ŒÃ” –≈∆»Ã” Õ¿’”…");
-                animator.Play(idle_animation);
-            }
-            else if (Input.GetKeyDown(KeyCode.Space))
-            {
-                animator.Play(legend_animation);
+                animator.SetBool("run", false);
 
-            }else if (Input.GetKeyDown(KeyCode.LeftShift))
-            {
-                animator.Play(run_animation);
-            }*/
-           
+            }
+
+        }
+    }
+    void camWalkinkAnimate()
+    {
+        while (Input.GetKey(KeyCode.W)) { 
+        
+        
         }
     }
 }
