@@ -46,7 +46,7 @@ public class PlayerControl : MonoBehaviour
         float XRot = Input.GetAxisRaw("Mouse Y");
         Vector3 camRotation = new Vector3(XRot, 0f, 0f) * mouseSensevity;
 
-        print(camRotation.x + " "+camRotation.y + " " + camRotation.z);
+       // print(camRotation.x + " "+camRotation.y + " " + camRotation.z);
 
         Vector3 run_velocity = velocity * runSpeed;
 

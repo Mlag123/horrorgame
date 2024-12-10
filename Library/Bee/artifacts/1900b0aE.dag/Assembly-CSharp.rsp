@@ -356,6 +356,7 @@
 "Assets/Scripts/PlayerControl.cs"
 "Assets/Scripts/PlayerMotor.cs"
 "Assets/Scripts/PlayerMove.cs"
+"Assets/Scripts/TerrainScript/TerrainPerlin.cs"
 -langversion:9.0
 /deterministic
 /optimize+

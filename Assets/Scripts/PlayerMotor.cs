@@ -40,7 +40,7 @@ public class PlayerMotor : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            print("PRESS");
+           // print("PRESS");
             rb.velocity = new Vector3 (0, 5, 0);
             isGrounded = false;
         }
